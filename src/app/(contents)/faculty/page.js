@@ -42,7 +42,7 @@ export default function Faculty() {
                     <div key={index}>
                         {faculty.name} : &nbsp;
                         {faculty.total} ราย | &nbsp;
-                        {faculty.idround}
+                        {faculty.rname}
                         <button onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
                     </div>
                 ))}

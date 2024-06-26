@@ -18,6 +18,7 @@ export default async function edit_add_department() {
                     <div key={index}>  
                       หน่วยงาน :  <input type="text" value={faculty.name} onChange={(e) => handleNameChange(e.target.value)} />&nbsp;
                       จำนวนเข้ารับ : <input type="text" value={faculty.total} onChange={(e) => handleNameChange(e.target.value)} />&nbsp;
+                                 <input type="text" value={faculty.rname} onChange={(e) => handleNameChange(e.target.value)} />&nbsp;
                           
                         
                         <button>บันทึก</button>

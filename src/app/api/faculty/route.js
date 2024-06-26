@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 export  async function GET(request) {
     try {
         const connection = await pool.getConnection();
-        const query = 'select * from faculty'
+        const query = 'select faculty.name, faculty.total ,round.name rname from faculty JOIN round on (round.idround = faculty.idround)'
         const [rows] = await connection.execute(query)
         connection.release()
         return NextResponse.json({ faculty: rows })
