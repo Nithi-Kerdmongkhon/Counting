@@ -4,9 +4,9 @@ import styles from "@/app/styles/footer.module.css"
 function Footer() {
   return (
     <div className={styles.footer}>
-      <p>
+      <footer>
         Copyright 2024. All Rights Reserved.
-      </p>
+      </footer>
     </div>
   )
 }
