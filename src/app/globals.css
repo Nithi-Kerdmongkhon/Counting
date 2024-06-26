@@ -1,7 +1,6 @@
 body {
     font-family: 'Sarabun', sans-serif;
     /* ใช้ชื่อฟอนต์ที่คุณตั้งใน @font-face */
-    background-image: url("/images/bg-fade.png");
     background-size: cover; /* ปรับขนาดรูปภาพให้เต็มหน้าจอ */
     background-repeat: no-repeat; /* ไม่ให้รูปภาพซ้ำ */
     background-attachment: fixed; /* ให้รูปภาพติดกับหน้าจอ */

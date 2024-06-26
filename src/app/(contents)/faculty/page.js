@@ -6,7 +6,7 @@ import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
 import getData from "@/app/components/CLUD/get";
 import deleteData from "@/app/components/CLUD/delete"; // Import the deleteData function
-
+import styles from '@/app/styles/faculty.module.css'
 
 export default function Faculty() {
     const [facultys, setFacultys] = useState([]);
@@ -34,17 +34,19 @@ export default function Faculty() {
     return (
         <div>
             <Navber />
-            <div>รายชื่อหน่วยงาน</div>
-            <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
-            <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
-            {facultys.map((faculty, index) => (
-                <div key={index}>
-                    {faculty.name} : &nbsp;
-                    {faculty.total} ราย | &nbsp;
-                    {faculty.idround}
-                    <button onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
+            <div className={styles.container} >
+                <div>รายชื่อหน่วยงาน</div>
+                <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
+                <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
+                {facultys.map((faculty, index) => (
+                    <div key={index}>
+                        {faculty.name} : &nbsp;
+                        {faculty.total} ราย | &nbsp;
+                        {faculty.idround}
+                        <button onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
+                    </div>
+                ))}
                 </div>
-            ))}
             <Footer />
         </div>
     );
