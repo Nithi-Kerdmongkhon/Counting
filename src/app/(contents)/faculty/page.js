@@ -7,6 +7,7 @@ import Handle_Click from "@/app/components/handle/handleclick";
 import getData from "@/app/components/CLUD/get";
 import deleteData from "@/app/components/CLUD/delete"; // Import the deleteData function
 
+
 export default function Faculty() {
     const [facultys, setFacultys] = useState([]);
     
@@ -40,7 +41,7 @@ export default function Faculty() {
                 <div key={index}>
                     {faculty.name} : &nbsp;
                     {faculty.total} ราย | &nbsp;
-                    {faculty.idround.name}
+                    {faculty.idround}
                     <button onClick={() => handleDelete(faculty.idfaculty)}>ลบ</button>
                 </div>
             ))}

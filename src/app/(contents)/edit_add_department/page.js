@@ -2,29 +2,13 @@
 import Navber from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 import Handle_Click from "@/app/components/handle/handleclick"
+import getData from "@/app/components/CLUD/get";
 
-async function getFaculty() {
-    const postData = {
-        method: "GET",
-        // cache: "no-cache",
-        next: { revalidate: 0 },
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }
-        
-    const res = await fetch('http://localhost:3000/api/faculty',postData)
-    if (!res.ok) {
-        throw new Error("cannot fetch")
-    }
-    return res.json()
-}
+
 export default async function edit_add_department() {
-
-    
-    const facultys = await getFaculty()
+        const param = "faculty";
+        const facultys = await getData(param)
 		console.log(facultys)
-
     return (
         <div>
             <Navber />
