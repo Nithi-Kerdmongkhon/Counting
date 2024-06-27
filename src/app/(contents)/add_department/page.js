@@ -54,8 +54,8 @@ export default function AddDepartment() {
                         />
                     </div>
                     {/* <button type="submit" disabled={!isFormValid}>บันทึก</button> &nbsp; */}
-                    <Handle_Click path="/faculty" buttonText="บันทึก" />
                     <Handle_Click path="/faculty" buttonText="ย้อนกลับ" />
+                    <Handle_Click path="/faculty" buttonText="บันทึก" />
                 </form>
             </div>
             <Footer />
