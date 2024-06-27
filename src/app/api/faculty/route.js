@@ -2,10 +2,25 @@ import { NextResponse } from "next/server";
 import pool from "@/app/lib/mysql";
 import { redirect } from "next/navigation"
 
+// ถ้าดึงผล round มาแสดง จะทำให้ลบข้อมูลไม่ได้
+// export  async function GET(request) {
+//     try {
+//         const connection = await pool.getConnection();
+//         const query = 'select faculty.name, faculty.total ,round.name rname from faculty JOIN round on (round.idround = faculty.idround)'
+//         const [rows] = await connection.execute(query)
+//         connection.release()
+//         return NextResponse.json({ faculty: rows })
+
+//     } catch (error) {
+//         return NextResponse.json({
+//             error
+//         }, { status: 500 })
+//     }
+//}
 export  async function GET(request) {
     try {
         const connection = await pool.getConnection();
-        const query = 'select faculty.name, faculty.total ,round.name rname from faculty JOIN round on (round.idround = faculty.idround)'
+        const query = 'select * from faculty'
         const [rows] = await connection.execute(query)
         connection.release()
         return NextResponse.json({ faculty: rows })
@@ -16,7 +31,6 @@ export  async function GET(request) {
         }, { status: 500 })
     }
 }
-
 export async function DELETE(request) {
     try {
         const { idfaculty } = await request.json(); // Parse the request body to get the ID

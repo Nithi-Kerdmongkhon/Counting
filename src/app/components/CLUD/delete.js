@@ -1,29 +1,21 @@
-'use client';
-
-async function deleteData(idfaculty) {
-    const deleteOptions = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ idfaculty })
-    };
-
+// delete.js (assuming this is under "@/app/components/CLUD/delete")
+export default async function deleteData(idfaculty) {
     try {
-        const response = await fetch(`http://localhost:3000/api/faculty`, deleteOptions);
-        
+        const response = await fetch('/api/faculty', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ idfaculty }),
+        });
+
         if (!response.ok) {
-            const errorData = await response.json();
-            console.error("Failed to delete faculty:", errorData.error);
-            return; // Exit if the response is not OK
+            throw new Error('Failed to delete faculty');
         }
 
-        // If successful, update the state accordingly
         const data = await response.json();
-        return data; // Return the response data if needed
+        return data;
     } catch (error) {
-        console.error("Error deleting faculty:", error);
+        throw new Error(error.message);
     }
 }
-
-export default deleteData;
