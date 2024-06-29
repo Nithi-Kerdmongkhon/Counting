@@ -1,4 +1,5 @@
 'use client';
+
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";

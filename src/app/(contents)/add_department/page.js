@@ -11,6 +11,7 @@ export default function AddDepartment() {
     const [total, setTotal] = useState('');
     const [rname, setRname] = useState('');
     const roundOptions = ["เช้า ช่วง 1", "เช้า ช่วง 2", "บ่าย ช่วง 1", "บ่าย ช่วง 2"];
+    
     const router = useRouter();
 
     const handleSubmit = async (e) => {
@@ -33,7 +34,6 @@ export default function AddDepartment() {
         router.push("/faculty");
     };
     
-
     return (
         <div>
             <Navbar />
