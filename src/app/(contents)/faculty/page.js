@@ -5,7 +5,7 @@ import Navber from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
 import getData from "@/app/components/CLUD/get";
-import deleteData from "@/app/components/CLUD/delete"; // Import the deleteData function
+import deleteData from "@/app/components/CLUD/delete";
 import styles from '@/app/styles/faculty.module.css';
 
 export default function Faculty() {
@@ -21,7 +21,9 @@ export default function Faculty() {
             setLoading(true);
             const param = "faculty";
             const data = await getData(param);
-            setFacultys(data.faculty);
+            if (data && data.faculty) {
+                setFacultys(data.faculty); // ต้องมี rname ในข้อมูลที่ได้รับมา
+            }
         } catch (error) {
             console.error("Error fetching faculty data:", error);
         } finally {
@@ -48,11 +50,9 @@ export default function Faculty() {
                 <div>รายชื่อหน่วยงาน</div>
                 <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
                 <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
-                {loading ? (
-                    <div>Loading...</div>
-                ) : (
-                    facultys.map((faculty, index) => (
-                        <div key={index}>
+                {loading ? ( <div>Loading...</div>) : (
+                    facultys.map((faculty) => (
+                        <div key={faculty.idfaculty}>
                             {faculty.name} : &nbsp;
                             {faculty.total} ราย | &nbsp;
                             {faculty.rname}

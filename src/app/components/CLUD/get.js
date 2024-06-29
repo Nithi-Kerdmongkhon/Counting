@@ -1,4 +1,4 @@
-'use client';
+"use client";
 async function getData(param) {
     const postData = {
         method: "GET",
@@ -6,7 +6,7 @@ async function getData(param) {
         headers: {
             "Content-Type": "application/json"
         }
-    }
+    };
 
     const res = await fetch(`http://localhost:3000/api/${param}`, postData);
     if (!res.ok) {
@@ -16,3 +16,4 @@ async function getData(param) {
 }
 
 export default getData;
+
