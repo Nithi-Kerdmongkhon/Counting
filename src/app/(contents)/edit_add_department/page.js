@@ -5,14 +5,8 @@ import Footer from "@/app/components/footer";
 import Handle_Click from "@/app/components/handle/handleclick";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
-
-async function getFaculty() {
-    const res = await fetch('http://localhost:3000/api/faculty', { method: "GET" });
-    if (!res.ok) {
-        throw new Error("Cannot fetch faculty data");
-    }
-    return res.json();
-}
+import getData from "@/app/components/CLUD/get";
+import styles from "@/app/styles/edit.module.css"
 
 export default function EditAddDepartment() {
     const [facultys, setFacultys] = useState([]);
@@ -22,7 +16,7 @@ export default function EditAddDepartment() {
     useEffect(() => {
         async function fetchFaculty() {
             try {
-                const data = await getFaculty();
+                const data = await getData('faculty');
                 setFacultys(data.faculty || []);
             } catch (error) {
                 console.error("Error fetching faculty:", error);
@@ -91,7 +85,7 @@ export default function EditAddDepartment() {
                 console.log(`Faculty with ID ${facultyId} updated successfully`);
             }
             // Fetch the updated facultys after saving
-            const updatedData = await getFaculty();
+            const updatedData = getData('faculty');
             setFacultys(updatedData.faculty || []);
         } catch (error) {
             console.error('Error updating faculty:', error.message);
@@ -100,24 +94,31 @@ export default function EditAddDepartment() {
     };
 
     return (
-        <div>
+        <div >
             <Navbar />
-            <div>หน่วยงาน</div>
-            {facultys.map((faculty, index) => (
-                <div key={faculty.idfaculty}>
-                    หน่วยงาน: <input type="text" value={faculty.name} onChange={(e) => handleNameChange(index, e.target.value)} />&nbsp;
-                    จำนวนเข้ารับ: <input type="text" value={faculty.total} onChange={(e) => handleTotalChange(index, e.target.value)} />&nbsp;
-                    รอบ: 
-                    <select value={faculty.rname} onChange={(e) => handleRoundChange(index, e.target.value)}>
-                        {roundOptions.map((option, i) => (
-                            <option key={i} value={option}>{option}</option>
-                        ))}
-                    </select>&nbsp;
+            <div className={styles.container}>
+                <p className={styles.BodyContainer}>แก้ไขหน่วยงาน</p>
+                <div className={styles.Containers}>
+                    {facultys.map((faculty, index) => (
+                        <div key={faculty.idfaculty} className={styles.Table1}>
+                            
+                            หน่วยงาน: <input className={styles.inputField} type="text" value={faculty.name} onChange={(e) => handleNameChange(index, e.target.value)} />&nbsp;
+                            จำนวนเข้ารับ: <input className={styles.inputField} type="text" value={faculty.total} onChange={(e) => handleTotalChange(index, e.target.value)} />&nbsp;
+                            รอบ: 
+                            <select className={styles.formselect} value={faculty.rname} onChange={(e) => handleRoundChange(index, e.target.value)}>
+                                {roundOptions.map((option, i) => (
+                                    <option key={i} value={option}>{option}</option>
+                                ))}
+                            </select>&nbsp;
+                        </div>
+                    ))}
+                    </div>
+                
+                <div className={styles.ContainerDown}>
+                    <Handle_Click className={styles.buttonDown}  path="/faculty" buttonText="ย้อนกลับ"  />
+                    <button className={styles.buttonDown} onClick={handleSave}>บันทึก</button>
                 </div>
-            ))}
-            <button onClick={handleSave}>บันทึก</button>
-            <Handle_Click path="/faculty" buttonText="ย้อนกลับ" /> &nbsp;
+            </div>
             <Footer />
-        </div>
-    );
+        </div>)
 }

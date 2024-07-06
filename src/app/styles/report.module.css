@@ -28,15 +28,6 @@
 
     box-sizing: border-box; 
 }
-.container {
-    background-image: url('/img1.jpg'); /* Update the path accordingly */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: screen; 
-    background-color: #e9e7e7; 
-    
-}
 
 .ContainRow0 {
     display: grid;
@@ -66,7 +57,7 @@
 }
 
 .row_0>h {
-    background-color: rgb(255, 129, 75);
+    background-color: #DE7D24;
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
@@ -116,7 +107,7 @@
 }
 
 .row_1>h {
-    background-color: rgb(255, 129, 75);
+    background-color:#DE7D24;
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
@@ -207,7 +198,7 @@
 }
 
 .FacultyName>h {
-    background-color: rgb(255, 129, 75);
+    background-color: #DE7D24;
     text-align: center;
     padding: 10px 0;
     font-size: 30px;
@@ -281,11 +272,7 @@
     font-family: 'Sarabun', sans-serif;
 }
 
-@font-face {
-    font-family: 'Sarabun';
-    src: url('D: \Project wepapp\rmuti-app\public\Font\Sarabun-Regular.ttf') format('truetype');
-    /* ตั้งชื่อฟอนต์ตามที่คุณต้องการและเปลี่ยนที่อยู่ของไฟล์ฟอนต์ให้ตรงกับโครงสร้างโปรเจคของคุณ */
-}
+
 
 .ContainAll {
     display: grid;

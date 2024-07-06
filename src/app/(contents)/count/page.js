@@ -23,24 +23,22 @@ export default function count() {
   return (
     <>
       <Navber /> 
-      <div className={styles.container}>
-        <div className={styles.containerGroup}>
-          <div className={styles.inputValue}>
-            <div className={styles.labelValue}>
-              <label>นับบัณฑิตเข้ารับพระราชทานปริญญาบัตร</label>
+        <div className={styles.Container}>
+          <div className={styles.BodyContainer}>
+                <label>นับบัณฑิตเข้ารับพระราชทานปริญญาบัตร</label>
+                <div className={styles.ContainerContent}>
+                    <h2>บัณฑิตที่รับแล้ว</h2>
+                    <input type="number" value={count} onChange={handleCountChange} />
+                    <h2>บัณฑิตที่ยังไม่ได้รับ</h2>
+                    <input type="number" value={name} onChange={handleNameChange} />
+
+                    <div className={styles.btnClick}>
+                        <button className={`${styles.btnPlus} ${styles.btnClick}`} onClick={() => { setCount(count + 1); setName(name - 1); }}>เพิ่มจำนวน</button>
+                        <button className={`${styles.btnDelete} ${styles.btnClick}`} onClick={() => { setCount(count - 1); setName(name + 1); }}>ลดจำนวน</button>
+                    </div>
+                </div>
             </div>
-            <h2>บัณฑิตที่รับแล้ว</h2>
-            <input type="number" value={count} onChange={handleCountChange} />
-            <h2>บัณฑิตที่ยังไม่ได้รับ</h2>
-            <input type="number" value={name} onChange={handleNameChange} /> 
-          </div>
-          <div className={styles.btnClick}>
-            <button className={`${styles.btnPlus} ${styles.btnClick}`} onClick={() => { setCount(count + 1); setName(name - 1); }}>เพิ่มจำนวน</button>
-            <button className={`${styles.btnDelete} ${styles.btnClick}`} onClick={() => { setCount(count - 1); setName(name + 1); }}>ลดจำนวน</button>
-          </div>
         </div>
-        
-      </div>
       <Footer /> 
     </>
   )

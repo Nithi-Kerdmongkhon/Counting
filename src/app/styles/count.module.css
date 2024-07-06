@@ -1,38 +1,53 @@
-.container {
-    max-width: auto;
-    height: 80vh;
-    margin: 0 auto;
+
+.BodyContainer {
+    display: block;
+    place-items: center;
+    padding: 10px 0px 10px 0px; /* บน ขวา ล่าง ซ้าย*/
+    margin: auto;
+    width: 80%;
+    height: auto;
+   
+    align-items: center;/* จัดให้อยู่กึ่งกลางในแนวดิ่ง */
+    justify-content: center;
     text-align: center;
+
+    box-sizing: border-box;
+}
+
+.BodyContainer > label {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 35px;
+    margin: 10px;
+    
+}
+
+.ContainerContent > input {
+    width: 40%; /* Increase the width */
+    height: 120px; /* Increase the height */
+    padding: 12px; /* Increase the padding */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 70px; /* Increase the font size */
+    background-color: #ccc;
+    text-align: center;
+}
+
+.ContainerContent > h2 {
+    font-family: 'Sarabun', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+
+.styleButton {
     display: flex;
+    margin: 10px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background-image: url('/img1.jpg'); /* Update the path accordingly */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: screen; 
-    background-color: #e9e7e7; 
-}
-
-.inputValue {
-    font-size: medium;
-    max-height: auto;
-}
-
-.inputValue label {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.inputValue input {
-    border-radius: 10px;
-    border: 0;
-    font-size: 90px;
-    text-align: center;
-    background-color: #aeaeae;
-    height: 150px;
-    width: 400px;
 }
 
 .btnClick {
@@ -58,48 +73,16 @@
     color: white;
 }
 
-@media screen and (max-width: 800px) {
-    .container {
-        max-width: auto;
-        margin: 0 auto;
-        text-align: center;
-        background-image: url('/img1.jpg'); /* Update the path accordingly */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+@media (max-width: 600px) {
+    .BodyContainer {
+        width: 90%;
     }
 
-    .containerGroup {
-        height: auto; /* Adjust as per your design */
-        max-width: 85%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .BodyContainer>label {
+        font-size: 25px;
     }
 
-    .inputValue input {
-        height: auto; 
-        width: 100%; /* Adjust width to fit container */
-        max-width: 400px; /* Example maximum width */
-        font-size: 50px; /* Adjust font size for smaller screens */
-    }
-
-    .btnClick {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .btnClick button {
-        height: auto; /* Adjust height as needed */
-        width: auto; /* Allow button to expand with content */
-        max-width: 100%; /* Ensure buttons don't overflow parent */
-        font-size: large; /* Adjust font size for smaller screens */
-        margin: 10px; /* Adjust margins */
-        width: 8rem;
-        height: 3rem;
+    .ContainerContent > input {
+        width: 80%;
     }
 }
-

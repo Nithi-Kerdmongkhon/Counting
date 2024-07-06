@@ -1,12 +1,4 @@
-.ContainerAll {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    text-align: center;
-}
+
 .container {
     background-image: url('/img1.jpg'); /* Update the path accordingly */
     background-size: cover;
@@ -17,10 +9,21 @@
     
 }
 
+.ContainerAll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
 .ContainerHeadRound {
     font-family: 'Sarabun', sans-serif;
-    font-size: 24px;
-    margin: 10px;
+    font-size: 35px;
+    margin: 20px;
+    font-weight: bold;
 }
 
 .Content1 {
@@ -29,18 +32,21 @@
     align-items: center;
     justify-content: center;
     font-family: 'Sarabun', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 500;
     margin: 10px;
+    width: 80%;
 }
 
 .Content1 > input {
-    width: auto;
-    height: 15px;
+    width: 30%;
+    height: 25px;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 5px;
     font-family: 'Sarabun', sans-serif;
+    font-size: 15px;
 }
 
 .ContainerAll > button {

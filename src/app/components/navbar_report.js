@@ -1,5 +1,5 @@
 
-import styles from "@/app/styles/nav_report.module.css" // Adjust the path accordingly
+import styles from "@/app/styles/components/nav_report.module.css" // Adjust the path accordingly
 import Image from 'next/image';
 
 function Nav() {
