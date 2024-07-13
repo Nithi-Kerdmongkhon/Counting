@@ -48,7 +48,8 @@ export default function Faculty() {
             <Navber />
             <div className={styles.container}>
                 <div className={styles.ContainerTopic} >รายชื่อหน่วยงาน</div>
-                {loading ? ( <div>Loading...</div>) : (<div className={styles.containerTable}>
+                {loading ? ( <div>Loading...</div>) : 
+                   (<div className={styles.containerTable}>
                         <table className={styles.table}>
                             <thead>
                                 <tr className={styles.tr}>

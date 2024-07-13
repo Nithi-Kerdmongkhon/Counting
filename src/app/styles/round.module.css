@@ -1,12 +1,14 @@
-
-.container {
-    background-image: url('/img1.jpg'); /* Update the path accordingly */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: screen; 
-    background-color: #e9e7e7; 
-    
+.container{
+    background-color: #fdb953e9;
+    padding: 10px;
+    border-radius: 13px;
+    width: 50%;
+    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
 .ContainerAll {
@@ -16,7 +18,6 @@
     justify-content: center;
     width: 100%;
     height: auto;
-    text-align: center;
 }
 
 .ContainerHeadRound {
@@ -34,8 +35,8 @@
     font-family: 'Sarabun', sans-serif;
     font-size: 20px;
     font-weight: 500;
-    margin: 10px;
-    width: 80%;
+    margin: 5px;
+    width: 95%;
 }
 
 .Content1 > input {
@@ -50,7 +51,8 @@
 }
 
 .ContainerAll > button {
-    width: auto;
+    width: 60px;
+    height: 40px;
     margin: 5px;
     padding: 5px 10px;
     background-color: #cd8a3e;
@@ -59,22 +61,84 @@
     border-radius: 4px;
     cursor: pointer;
 }
-
-@media (max-width: 600px) {
-    .Content1 > input {
-        width: 20%; 
-        height: 20px;
-        padding: 6px; 
-        font-size: 14px; 
-    }
-    
-    .ContainerAll > button {
-        width: 20%; 
-        padding: 8px; 
-        font-size: 14px; 
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+        padding: 8px 0; /* Adjust container width for medium screens */
     }
 
     .Content1 {
-        font-size: 14px; 
+        font-size: 18px;
+    }
+
+    .Content1 > input {
+        width: 40%; /* Adjust input width for medium screens */
+        height: 20px;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .ContainerAll > button {
+        padding: 8px;
+        font-size: 14px;
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 8px 0; /* Adjust container width for small screens */
+    }
+
+    .ContainerHeadRound {
+        font-size: 28px;
+        margin: 15px;
+    }
+
+    .Content1 {
+        font-size: 16px;
+    }
+
+    .Content1 > input {
+        width: 90%; /* Adjust input width for small screens */
+        height: 20px;
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .ContainerAll > button {
+        width: auto;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%; /* Adjust container width for very small screens */
+        padding: 8px 0;
+    }
+
+    .ContainerHeadRound {
+        font-size: 24px;
+        margin: 10px;
+    }
+
+    .Content1 {
+        font-size: 14px;
+        flex-direction: column; /* Stack inputs vertically */
+        padding: 1px;
+        margin: 1px;
+    }
+
+    .Content1 > input {
+        width: 100%; /* Full width inputs for very small screens */
+        
+    }
+
+    .ContainerAll > button {
+        width: 100%; /* Full width button for very small screens */
+        width: auto;
     }
 }

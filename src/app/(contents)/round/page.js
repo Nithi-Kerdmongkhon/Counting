@@ -72,19 +72,20 @@ export default function Round() {
     return (
         <div>
             <Navbar />
-            <div className={styles.container}>
                 <div className={styles.ContainerAll}>
                     <div className={styles.ContainerHeadRound}>รอบเข้ารับ</div>
-                    {rounds.round.map((round, index) => (
-                        <div key={index} className={styles.Content1}>
-                            รอบ : <input type="text" value={round.name} onChange={(e) => handleNameChange(index, e.target.value)} /> &nbsp;
-                            จำนวนเข้ารับ : <input type="text" value={round.total} onChange={(e) => handleTotalChange(index, e.target.value)} /> &nbsp;
+                        <div className={styles.container}>
+                            {rounds.round.map((round, index) => (
+                                <div key={index} className={styles.Content1}>
+                                    รอบ : <input type="text" value={round.name} onChange={(e) => handleNameChange(index, e.target.value)} /> &nbsp;
+                                    จำนวนเข้ารับ : <input type="text" value={round.total} onChange={(e) => handleTotalChange(index, e.target.value)} /> &nbsp;
+                                    
+                                </div>
+                            ))}
                             
                         </div>
-                    ))}
-                    <button onClick={saveRounds}>บันทึก</button>
+                        <button onClick={saveRounds}>บันทึก</button>
                 </div>
-            </div>
             <Footer />
         </div>
     );

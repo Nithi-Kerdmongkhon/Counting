@@ -8,15 +8,14 @@ body {
     overflow-x: hidden;
     background-blend-mode: screen; 
     background-color: #e9e7e7;  /* ป้องกันการเลื่อนซ้ายขวา */
-    margin: 0;
+    
 }
 
 @font-face {
     font-family: 'Sarabun';
-    src: url('/Sarabun-Regular.ttf') format('truetype');
+    src: url('/font/Sarabun-Regular.ttf') format('truetype');
     /* เปลี่ยนที่อยู่ของไฟล์ฟอนต์ให้ตรงกับโครงสร้างโปรเจคของคุณ */
 }
-
 .header {
     background: #ffffff; 
     text-align: center;

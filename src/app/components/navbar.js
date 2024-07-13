@@ -16,14 +16,14 @@ function Nav() {
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src="/Logo.png"  width={400} height={120} alt='logo'/>
+            <Image className={styles.logo} src="/Logo.png"  width={400} height={120} alt='logo' priority/>
           </div>
           <ul className={click ? `${styles.menu} ${styles.active}` : styles.menu}>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/">นับจำนวน</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/faculty">คณะ</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/round">รอบ</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/report">ภาพรวม</Link>
-            <button onClick={() => signOut({ callbackUrl: '/login' })}>Sign out</button>
+            {/* <button onClick={() => signOut({ callbackUrl: '/login' })}>Sign out</button> */}
           </ul>
           <div className={styles.mobileMenu} onClick={handelClick}>
             {click ? <FiX /> : <FiMenu />}
