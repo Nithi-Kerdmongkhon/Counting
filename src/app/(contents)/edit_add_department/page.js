@@ -115,8 +115,8 @@ export default function EditAddDepartment() {
                     </div>
                 
                 <div className={styles.ContainerDown}>
-                    <Handle_Click className={styles.buttonDown}  path="/faculty" buttonText="ย้อนกลับ"  />
-                    <button className={styles.buttonDown} onClick={handleSave}>บันทึก</button>
+                    <Handle_Click className={styles.buttonBack}  path="/faculty" buttonText="ย้อนกลับ"  />
+                    <button className={styles.buttonSave} onClick={handleSave}>บันทึก</button>
                 </div>
             </div>
             <Footer />

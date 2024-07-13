@@ -66,22 +66,29 @@
     margin: 20px;
 }
 
-.buttonDown {
-    background-color: #cd8a3e;
-    width: 100px;
-    height: 40px;
-    /* สีพื้นหลัง */
+.buttonBack{
+    padding: 10px 20px;
+    background-color: red;
     color: white;
-    /* สีตัวอักษร */
-    padding: 5px 20px;
-    /* ระยะห่างภายในปุ่ม */
     border: none;
-    /* ไม่มีขอบ */
-    border-radius: 5px;
-    /* มุมโค้ง */
+    border-radius: 4px;
     cursor: pointer;
-    /* เปลี่ยนเคอร์เซอร์เมื่ออยู่เหนือปุ่ม */
+    margin: 10px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
 }
+.buttonSave {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 18px;
+}
+
 
 .inputField {
     width: calc(30% - 20px);
