@@ -5,9 +5,8 @@ import styles from '@/app/styles/count.module.css'
 import Navber from "@/app/components/navbar"
 import Footer from "@/app/components/footer"
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function count() {
+export default function Count() {
   const [count, setCount] = useState();
   const [name, setName] = useState();
 

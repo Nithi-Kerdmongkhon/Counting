@@ -80,7 +80,7 @@ tbody .tr:nth-of-type(odd) {
     width: auto;
     
     padding: 5px 10px;
-    background-color: #DE7D24;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 4px;
