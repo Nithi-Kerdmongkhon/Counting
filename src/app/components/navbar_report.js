@@ -7,7 +7,7 @@ function Nav() {
     <div className={styles.header}>
       <div className={styles.container}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src="/Logo.png"  width={395} height={105} alt='logo' priority/>
+            <Image className={styles.logo} src="/LG.png"  width={440} height={100} alt='logo' priority/>
           </div>
       </div>
     </div>

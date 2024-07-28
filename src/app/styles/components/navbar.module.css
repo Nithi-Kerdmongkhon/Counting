@@ -16,7 +16,7 @@
   }
   
   .logoContainer .logo {
-    margin-top: 10px;
+    margin-top: 20px;
   }
   
   .menu {
@@ -43,13 +43,16 @@
       color: #000;
       font-size: 2rem;
     }
-    .header {
-      padding: 0 2rem;
+   
+    .headerContainer {
+      width: 95%;
+    }
+    .logoContainer{
+      width: 100%;
     }
     .logoContainer .logo {
-      margin-top: 10px;
-      height: auto; 
-      max-width: 85%;
+    height: auto; 
+    width: 100%;
     }
     .menu {
       width: 100%;
@@ -88,5 +91,6 @@
       color: #fff;
       font-weight:bold;
     }
+    
   }
   

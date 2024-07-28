@@ -16,7 +16,7 @@ function Nav() {
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src="/Logo.png"  width={400} height={120} alt='logo' priority/>
+            <Image className={styles.logo} src="/LG.png"  width={440} height={100} alt='logo' priority/>
           </div>
           <ul className={click ? `${styles.menu} ${styles.active}` : styles.menu}>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/">นับจำนวน</Link>
