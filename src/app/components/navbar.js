@@ -1,31 +1,42 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import styles from "@/app/styles/components/navbar.module.css" // Adjust the path accordingly
+import styles from "@/app/styles/components/navbar.module.css";
 import Link from 'next/link';
 import Image from 'next/image';
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react";
 
 function Nav() {
+  const { data: session } = useSession();
   const [click, setClick] = useState(false);
-  const handelClick = () => setClick(!click);
+  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const handleSignOut = async () => {
+    await signOut({
+      callbackUrl: '/login',
+      redirect: true,
+    });
+  };
 
   return (
     <div className={styles.header}>
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src="/LG.png"  width={440} height={100} alt='logo' priority/>
+            <Image className={styles.logo} src="/LG.png" width={440} height={108} alt='logo' />
           </div>
           <ul className={click ? `${styles.menu} ${styles.active}` : styles.menu}>
-            <Link className={styles.menuLink} onClick={closeMobileMenu} href="/">นับจำนวน</Link>
+            <Link className={styles.menuLink} onClick={closeMobileMenu} href="/count">นับจำนวน</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/faculty">คณะ</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/round">รอบ</Link>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/report">ภาพรวม</Link>
-            {/* <button onClick={() => signOut({ callbackUrl: '/login' })}>Sign out</button> */}
+            <div className={styles.signOutContainer}>
+              {session && <span className={styles.username}>{session.user.name} </span>}
+              <button className={styles.button} onClick={handleSignOut}>Sign out</button>
+            </div>
           </ul>
-          <div className={styles.mobileMenu} onClick={handelClick}>
+          <div className={styles.mobileMenu} onClick={handleClick}>
             {click ? <FiX /> : <FiMenu />}
           </div>
         </div>
