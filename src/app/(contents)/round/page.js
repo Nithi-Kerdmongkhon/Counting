@@ -68,7 +68,7 @@ export default function Round() {
 
             console.log('Rounds updated successfully');
             fetchRounds();
-            alert("บันทึกข้อมูลเสร็จสิ้น");
+            alert("บันทึกข้อมูลเสร็จสิ้นเรียบร้อย");
         } catch (error) {
             console.error('Error updating rounds:', error.message);
         }
