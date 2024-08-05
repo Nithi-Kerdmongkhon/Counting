@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from '@/app/styles/count.module.css';
-import Navber from "@/app/components/navbar";
+import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import getData from '@/app/components/CLUD/get';
 
@@ -84,7 +84,7 @@ async function handleCountChange(event) {
 
   return (
     <>
-      <Navber />
+      <Navbar />
       <div className={styles.Container}>
         <div className={styles.BodyContainer}>
           <label>นับบัณฑิตเข้ารับพระราชทานปริญญาบัตร</label>
