@@ -50,7 +50,6 @@ export default function SendNotification() {
       const afternoonReceived = current >= morning ? Math.max(current - morning, 0) : 0;
       const afternoonPercentage = afternoon > 0 ? (afternoonReceived >= afternoon ? 100 : Math.round((afternoonReceived / afternoon) * 100)) : 0;
 
-      
       const res = await fetch('/api/notify', {
         method: 'POST',
         headers: {
@@ -69,10 +68,10 @@ export default function SendNotification() {
             remainingAfternoon,
             afternoonPercentage,
             facultyData,
-            // morningReceived: current >= morning ? morning : current  // Adding morningReceived field
           }
         }),
       });
+
       const result = await res.json();
       if (res.ok) {
         setResponse(result.message);
@@ -89,12 +88,6 @@ export default function SendNotification() {
 
   useEffect(() => {
     fetchDataAndSendNotification();
-    const interval = setInterval(() => {
-      fetchDataAndSendNotification();
-      window.location.reload();
-    }, 180000);
-
-    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -102,7 +95,7 @@ export default function SendNotification() {
       <MetaRefresh interval="180" />
       <h1>Send Notification</h1>
       {response && <p>Notification sent successfully!</p>}
-      {/* {error && <p>Error: {error}</p>} */}
+      {error && <p>Error: {error}</p>}
     </div>
   );
 }

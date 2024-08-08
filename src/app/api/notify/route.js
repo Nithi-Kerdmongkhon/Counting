@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 export async function POST(request) {
     try {
         const { message, reportData } = await request.json();
@@ -8,32 +10,24 @@ export async function POST(request) {
         }
 
         const facultyDetails = reportData.facultyData.map(f => 
-            `${f.name}:
-            รับแล้ว: ${f.received},
-            คงเหลือ: ${f.remaining},
-            ${f.percentage}%`
+            `${f.name}:\nรับแล้ว: ${f.received}, คงเหลือ: ${f.remaining}, ${f.percentage}%`
         ).join('\n');
 
         const notificationMessage = 
-            `${message}\n
-            ภาพรวม\n
-            รับแล้ว: ${reportData.current}\n
-            คงเหลือ: ${reportData.totalSum - reportData.current}\n
-            เปอร์เซ็นต์: ${reportData.overviewPercentage}%\n
-            ----------------------
-            รอบเช้า\n
-            รับแล้ว: ${reportData.current >= reportData.morning ? reportData.morning : Math.max(reportData.current, 0)}\n
-            คงเหลือ: ${reportData.remainingMorning}\n
-            เปอร์เซ็นต์: ${reportData.morningPercentage}%\n
-            ----------------------
-            รอบบ่าย\n
-            รับแล้ว: ${reportData.current >= reportData.morning ? Math.max(reportData.current - reportData.morning, 0) : 0}\n
-            คงเหลือ: ${reportData.remainingAfternoon}\n
-            เปอร์เซ็นต์: ${reportData.afternoonPercentage}%\n
-            ----------------------
-            คณะ\n
-            ${facultyDetails}`
-        ;
+            `${message}\n\n` +
+            `ภาพรวม\nรับแล้ว: ${reportData.current}\n` +
+            `คงเหลือ: ${reportData.totalSum - reportData.current}\n` +
+            `เปอร์เซ็นต์: ${reportData.overviewPercentage}%\n` +
+            `----------------------\n` +
+            `รอบเช้า\nรับแล้ว: ${reportData.current >= reportData.morning ? reportData.morning : Math.max(reportData.current, 0)}\n` +
+            `คงเหลือ: ${reportData.remainingMorning}\n` +
+            `เปอร์เซ็นต์: ${reportData.morningPercentage}%\n` +
+            `----------------------\n` +
+            `รอบบ่าย\nรับแล้ว: ${reportData.current >= reportData.morning ? Math.max(reportData.current - reportData.morning, 0) : 0}\n` +
+            `คงเหลือ: ${reportData.remainingAfternoon}\n` +
+            `เปอร์เซ็นต์: ${reportData.afternoonPercentage}%\n` +
+            `----------------------\n` +
+            `คณะ\n${facultyDetails}`;
 
         const response = await fetch('https://notify-api.line.me/api/notify', {
             method: 'POST',
