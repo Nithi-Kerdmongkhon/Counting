@@ -24,7 +24,7 @@ function Nav() {
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.logoContainer}>
-            <Image className={styles.logo} src="/LG.png" width={440} height={108} alt='logo' />
+            <Image className={styles.logo} src="/LG.png" width={465} height={108} alt='logo' />
           </div>
           <ul className={click ? `${styles.menu} ${styles.active}` : styles.menu}>
             <Link className={styles.menuLink} onClick={closeMobileMenu} href="/count">นับจำนวน</Link>
