@@ -103,9 +103,11 @@ export default function SendNotification() {
   return (
     <div>
       <MetaRefresh interval="180" />
+      <center>
       <h1>Send Notification</h1>
       {response && <p>Notification sent successfully!</p>}
       {error && <p>Error: {error}</p>}
+      </center>
     </div>
   );
 }
