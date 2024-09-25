@@ -1,5 +1,5 @@
 "use client"
-import Home from "@/app/(contents)/count//page"
+import Home from "@/app/(contents)/faculty"
 
 export default function page() {
  

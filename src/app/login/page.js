@@ -17,14 +17,14 @@ export default function LoginPage() {
     if (!session) {
       router.push('/login');
     } else {
-      router.push('/count');
+      router.push('/faculty');
     }
   }, [session, status, router]);
 
   const handleLogin = async () => {
     try {
       await signIn("google", {
-        callbackUrl: "/count",
+        callbackUrl: "/faculty",
         prompt: "select_account", // เพิ่มพารามิเตอร์นี้
       });
     } catch (error) {
