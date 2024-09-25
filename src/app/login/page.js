@@ -13,9 +13,10 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (status === 'loading') return;
-
-    if (!session) {
-      router.push('/login');
+  
+    if (!session || !session.user.allowed) {
+      // alert("ไม่มีสิทธิ์ในการเข้าถึง กรุณาเลือกบัญชีใหม่");
+      router.push('/login'); // เปลี่ยนเส้นทางไปยังหน้า login
     } else {
       router.push('/faculty');
     }
@@ -25,22 +26,18 @@ export default function LoginPage() {
     try {
       await signIn("google", {
         callbackUrl: "/faculty",
-        prompt: "select_account", // เพิ่มพารามิเตอร์นี้
+        prompt: "select_account", // ให้ผู้ใช้เลือกบัญชี
       });
     } catch (error) {
       console.error("Unexpected error occurred during sign in:", error);
     }
   };
-  
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <p>Loading...</p>; // แสดงข้อความขณะโหลด
   }
 
-  if (session) {
-    return null;
-  }
-
+  // ถ้าผู้ใช้เข้าสู่ระบบแล้วไม่แสดงหน้า login
   return (
     <Layout>
       <Head>
