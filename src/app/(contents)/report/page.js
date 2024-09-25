@@ -152,9 +152,9 @@ export default function GuestUser() {
 
                                     return (
                                         <tr key={faculty.idfaculty}>
-                                            <td>{faculty.name}</td>
-                                            <td>{received}</td>
-                                            <td>{remaining}</td>
+                                            <td className={styles.dataFaculty}>{faculty.name}</td>
+                                            <td className={styles.dataFaculty}>{received}</td>
+                                            <td className={styles.dataFaculty}>{remaining}</td>
                                             <td className={styles.percentageGreen} >{percentage}%</td>
                                         </tr>
                                     );

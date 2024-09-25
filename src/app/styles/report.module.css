@@ -9,7 +9,10 @@
     z-index: 1000;
         /* ทำให้ header อยู่ด้านบน */
 }
-
+.dataFaculty{
+    background-color: rgb(255, 255, 255);
+    font-family: 'Sarabun', sans-serif;
+}
 .percentageGreen {
     background-color: rgb(0, 186, 0);
     font-family: 'Sarabun', sans-serif;
