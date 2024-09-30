@@ -1,24 +1,20 @@
 import { NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { allowedEmails } from '@/app/components/allowedEmails';
 
 export async function middleware(request) {
   const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
-  // Define protected paths
-  const protectedPaths = ['/count', '/faculty', '/round', '/report'];
+  const protectedPaths = ['/count', '/faculty', '/round'];
 
-  // Check if the path is protected
   const isProtectedPath = protectedPaths.some(path => request.nextUrl.pathname.startsWith(path));
 
   if (isProtectedPath) {
     if (!token) {
-      // If no token, redirect to login
       return NextResponse.redirect(new URL('/login', request.url));
     }
 
-    // Check if the user's email is allowed
-    if (!token.allowed) {
-      // Remove the session (sign out)
+    if (!allowedEmails.includes(token.email)) {
       return NextResponse.redirect(new URL('/login?error=AccessDenied', request.url));
     }
   }
@@ -27,5 +23,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/count', '/faculty', '/round', '/report'], // Specify paths for middleware
+  matcher: ['/count', '/faculty', '/round', '/report'],
 };
