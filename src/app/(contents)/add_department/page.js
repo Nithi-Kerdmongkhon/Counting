@@ -16,7 +16,7 @@ export default function AddDepartment() {
     const router = useRouter();
 
     const handleSubmit = async () => {
-        const departmentData = { name, total, rname }; //ทดสอบGit
+        const departmentData = { name, total, rname };
         console.log('Department data:', departmentData);
 
         try {
