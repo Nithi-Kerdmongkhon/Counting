@@ -4,7 +4,7 @@ import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import postData from "@/app/components/CLUD/post";
 import Handle_Click from "@/app/components/handle/handleclick";
-import { useRouter } from 'next/navigation'; 
+import { useRouter } from 'next/navigation';
 import styles from '@/app/styles/add_department.module.css';
 
 export default function AddDepartment() {
@@ -12,13 +12,13 @@ export default function AddDepartment() {
     const [total, setTotal] = useState('');
     const [rname, setRname] = useState('');
     const roundOptions = ["เช้า ช่วง 1", "เช้า ช่วง 2", "บ่าย ช่วง 1", "บ่าย ช่วง 2"];
-    
+
     const router = useRouter();
 
     const handleSubmit = async () => {
-        const departmentData = { name, total, rname };
+        const departmentData = { name, total, rname }; //ทดสอบGit
         console.log('Department data:', departmentData);
-    
+
         try {
             const result = await postData('add_department', departmentData);
             console.log('Department added successfully:', result);
@@ -30,7 +30,7 @@ export default function AddDepartment() {
             console.error('Error adding department:', error);
         }
     };
-    
+
     return (
         <div>
             <Navbar />
@@ -41,7 +41,7 @@ export default function AddDepartment() {
                         <label>
                             หน่วยงาน :
                         </label>
-                        <input 
+                        <input
                             type="text"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
@@ -61,7 +61,7 @@ export default function AddDepartment() {
                     </div>
                     <div className={styles.roundStyle}>
                         <label>
-                            รอบ : 
+                            รอบ :
                         </label>
                         <select value={rname} onChange={(e) => setRname(e.target.value)} required>
                             <option value="">เลือกรอบ</option>
@@ -74,10 +74,10 @@ export default function AddDepartment() {
 
                 {/* แก้ไขเพิ่ม div เพื่อให้ปุ่มอยู่ในบรรทัดเดียวกัน */}
                 <div className={styles.buttonContainer}>
-                    <Handle_Click className={styles.buttonBack} path="/faculty" buttonText="ย้อนกลับ" /> 
+                    <Handle_Click className={styles.buttonBack} path="/faculty" buttonText="ย้อนกลับ" />
                     <button type="button" className={styles.buttonSave} onClick={handleSubmit}>บันทึก</button>
                 </div>
-               
+
             </div>
             <Footer />
         </div>
