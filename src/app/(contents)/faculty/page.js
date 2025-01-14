@@ -22,7 +22,7 @@ export default function Faculty() {
             const param = "faculty";
             const data = await getData(param);
             if (data && data.faculty) {
-                setFacultys(data.faculty); // ต้องมี rname ในข้อมูลที่ได้รับมา
+                setFacultys(data.faculty);
             }
         } catch (error) {
             console.error("Error fetching faculty data:", error);
@@ -48,8 +48,8 @@ export default function Faculty() {
             <Navber />
             <div className={styles.container}>
                 <div className={styles.ContainerTopic} >รายชื่อหน่วยงาน</div>
-                {loading ? ( <div>Loading...</div>) : 
-                   (<div className={styles.containerTable}>
+                {loading ? (<div>Loading...</div>) :
+                    (<div className={styles.containerTable}>
                         <table className={styles.table}>
                             <thead>
                                 <tr className={styles.tr}>
@@ -73,7 +73,7 @@ export default function Faculty() {
                             </tbody>
                         </table>
                     </div>
-                )}
+                    )}
                 <div className={styles.stylesButton}>
                     <Handle_Click path="/add_department" buttonText="เพิ่ม" /> &nbsp;
                     <Handle_Click path="/edit_add_department" buttonText="แก้ไข" />
