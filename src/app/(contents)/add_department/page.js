@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import styles from "@/app/styles/add_department.module.css";
 
 export default function AddDepartment() {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(""); 
   const [total, setTotal] = useState("");
   const [rname, setRname] = useState("");
   const roundOptions = [
@@ -21,7 +21,7 @@ export default function AddDepartment() {
   const router = useRouter();
 
   const handleSubmit = async () => {
-    const departmentData = { name, total, rname };
+    const departmentData = { name, total, rname }; //123
     console.log("Department data:", departmentData);
 
     try {
