@@ -21,7 +21,7 @@ export default function AddDepartment() {
   const router = useRouter();
 
   const handleSubmit = async () => {
-    const departmentData = { name, total, rname };
+    const departmentData = { name, total, rname }; //456
     console.log("Department data:", departmentData);
 
     try {
