@@ -17,7 +17,7 @@ export default function AddDepartment() {
 
     const handleSubmit = async () => {
         const departmentData = { name, total, rname };
-        console.log('Department data:', departmentData);
+        console.log('Department data:', departmentData); //ทดสอบ vercel
 
         try {
             const result = await postData('add_department', departmentData);
